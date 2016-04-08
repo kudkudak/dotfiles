@@ -23,6 +23,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+Plugin 'wombat256.vim'
 Bundle 'altercation/vim-colors-solarized'
 " Run python install.py --clang-completer in bundle/YouCompleteMe!
 " Bundle 'Valloric/YouCompleteMe'
@@ -51,8 +52,8 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 """"""""""""""""""""
 "Shortcuts reminder"
 """"""""""""""""""""
-noremap <Leader>n :<C-U>tabnext<CR>
-noremap <Leader>m :<C-U>tabprevious<CR>
+noremap <Leader>n :<C-U>tabprevious<CR>
+noremap <Leader>m :<C-U>tabnext<CR>
 
 ",t/,T - tab navigation
 "ctrl+V - block selection
