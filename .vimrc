@@ -26,11 +26,11 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-Plugin 'wombat256.vim'
 Bundle 'altercation/vim-colors-solarized'
-" Run python install.py --clang-completer in bundle/YouCompleteMe!
-" Bundle 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
+" Heavyweight autocmpl
+" REQUIRES COMPILATION! Go to cd ~/.vim/bundle/YouCompleteMe; ./install.py --clang-completer (optional)--tern-completer 
+Plugin 'valloric/youcompleteme'
 Bundle 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
 
@@ -55,8 +55,8 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 """"""""""""""""""""
 "Shortcuts reminder"
 """"""""""""""""""""
-noremap <Leader>n :<C-U>tabprevious<CR>
-noremap <Leader>m :<C-U>tabnext<CR>
+noremap <Leader>n :<C-U>tabnext<CR>
+noremap <Leader>m :<C-U>tabprevious<CR>
 
 ",t/,T - tab navigation
 "ctrl+V - block selection
@@ -81,8 +81,9 @@ set splitright
 nmap <S-K> :exec(":!cppman " .expand("<cword>")) <CR><CR>
 
 autocmd filetype cpp nnoremap <F4> :w <bar> exec '!clang++-3.6 -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype py nnoremap <F4> :w <bar> exec '!python '.shellescape('%:r')<CR>
 
-" "Max out the height of the current split
+"Max out the height of the current split
 " "ctrl + w _
 " ""Max out the width of the current split
 " ctrl + w |
