@@ -7,6 +7,9 @@
 "curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 :let mapleader = ","
+
+set clipboard=unnamed
+
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -91,3 +94,7 @@ autocmd filetype cpp nnoremap <F4> :w <bar> exec '!clang++-3.6 -std=c++11 '.shel
 " ""Close every window in the current tabview but the current one
 " Ctrl+W o
 " "c
+"
+
+" Use system clipboard by default
+" set clipboard=unnamedplus
