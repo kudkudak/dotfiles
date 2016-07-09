@@ -1,6 +1,12 @@
 #!/bin/sh
 
-sudo umount ~/<WHERE_2>
+if [ "$#" == 0 ] || [ "$1" == "uj" ]; then
+    sudo umount ~/sshfs/uj
+    sshfs jastrzebski@truten.ii.uj.edu.pl:/lhome/home/jastrzebski/ ~/sshfs/uj -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+fi
 
-sshfs <USER>@<HOST>:<WHERE> ~/<WHERE_2>
 
+if [ "$#" == 0 ] || [ "$1" == "edi" ]; then
+    sudo umount ~/sshfs/edi
+    sshfs v1sjastr@stonesoup.inf.ed.ac.uk:/afs/inf.ed.ac.uk/user/v/v1sjastr/ ~/sshfs/edi -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+fi

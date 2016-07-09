@@ -25,5 +25,3 @@ alias rob='ssh sjastrzebski@robotics.ksi.ii.uj.edu.pl'
 alias stonesoup='ssh -t v1sjastr@stonesoup.inf.ed.ac.uk "cd /disk/scratch/v1sjastr/go-deep; bash" '
 
 export RDBASE=/usr/local/share/RDKit
-
-export GISTTOKEN="4992ab02f1b2a13e53c36554ce9c55c51c708295"
