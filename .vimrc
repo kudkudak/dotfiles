@@ -1,4 +1,5 @@
 "Set up vundle 
+"G
 "git clone https://github.com/VundleVim/Vundle.vim.git
 "~/.vim/bundle/Vundle.vim
 
@@ -30,6 +31,7 @@ Bundle 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
 " Heavyweight autocmpl
 " REQUIRES COMPILATION! Go to cd ~/.vim/bundle/YouCompleteMe; ./install.py --clang-completer (optional)--tern-completer 
+" Requires also correctly linked vim, if you have Anaconda on OSx brew install vim --with-python2 should do
 Plugin 'valloric/youcompleteme'
 Bundle 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
@@ -98,5 +100,5 @@ autocmd filetype py nnoremap <F4> :w <bar> exec '!python '.shellescape('%:r')<CR
 " "c
 "
 
-" Use system clipboard by default
-" set clipboard=unnamedplus
+" Fix macbook
+:set backspace=2  "compatible with version 5.4 and earlier
