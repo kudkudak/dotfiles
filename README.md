@@ -4,18 +4,19 @@ Repository for storing and sharing my configuration files and commonly used scri
 
 ## Useful utils/programs 
 
-* how2 (might require exporting some variable to disable ssl)
-* iterm (add escape+b to profiles/keyboards for CMD + arrow for word jump)
-* snap
-* bettertouchtools
-* tmux (might require https://gist.github.com/shawnbot/3277580)
-* keras: add wrapper over call
 * rdkit on server: mwojcichowski channel
 * openbabel on server: 
     *  clone repo
     *  export CXX and CC
     * -DCMAKE_INSTALL_PREFIX:PATH
     * -DPYTHON_BINDINS -DRUN_SWIG
+
+## OSX configuration
+
+* tmux (might require https://gist.github.com/shawnbot/3277580)
+* iterm (add escape+b to profiles/keyboards for CMD + arrow for word jump)
+* snap
+* http://inkmarkapp.com/markdown-quick-look-plugin-mac-os-x/ (space bar)
 
 ## Misc
 
