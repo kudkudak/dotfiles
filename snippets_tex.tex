@@ -1,0 +1,25 @@
+% Arxiving paper
+
+1. Add colorlinks to hyperref
+2. Make sure all eps are converted to pdf (without name change)
+
+% Removing unsued figures
+
+# small script that deletes unused graphic files in a latex project.
+# specify graphic directory and logfile. Unused files will be deleted in specified directory.
+
+import os
+
+directory = 'figs'
+logfile = 'main.log'
+enc = 'Latin-1' # For Overleaf, try 'Latin-1' if issues encountered...
+
+for filename in os.listdir(directory):
+    if filename in open(logfile).read():
+        print(filename + ' in use.')
+    else:
+        if os.path.isfile(os.path.join(directory, filename)):
+            print(filename + ' not in use - deleting.')
+            os.remove(os.path.join(directory, filename))
+        else:
+            print(filename + ' is a directory.')

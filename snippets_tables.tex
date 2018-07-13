@@ -1,0 +1,39 @@
+D2 = D.copy()
+D2.index = D.label
+D2 = D2[['F', 'min_F', 'test_acc', 'min_loss', 'dist_init']]
+D2['test_acc'] *= 100
+D2.columns = ['$||\mathbf{H}||_F$', 'min_F', 'Test acc.', "Min loss", "Dist."]
+for column in ['$||\mathbf{H}||_F$', 'min_F',"Dist."]: # , "$\rho(W)$"
+    D2[column] = D2[column].map('${:,.2f}$'.format)
+    
+    
+# Add min:
+D2['$||\mathbf{H}||_F$'] = D2['$||\mathbf{H}||_F$'] + " (" + D2['min_F'] + ") "
+
+del D2['min_F']
+    
+for column in ["Min loss"]:
+    D2[column] = D2[column].map('${:,.3f}$'.format)
+for column in ["Test acc."]:
+    D2[column] = D2[column].map('${:,.1f}\%$'.format)
+print(D2.to_latex(escape=False))
+
+
+# small script that deletes unused graphic files in a latex project.
+# specify graphic directory and logfile. Unused files will be deleted in specified directory.
+
+import os
+
+directory = 'figs'
+logfile = 'main.log'
+enc = 'Latin-1' # For Overleaf, try 'Latin-1' if issues encountered...
+
+for filename in os.listdir(directory):
+    if filename in open(logfile).read():
+        print(filename + ' in use.')
+    else:
+        if os.path.isfile(os.path.join(directory, filename)):
+            print(filename + ' not in use - deleting.')
+            os.remove(os.path.join(directory, filename))
+        else:
+            print(filename + ' is a directory.')
