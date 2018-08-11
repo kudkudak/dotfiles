@@ -1,3 +1,30 @@
+## Colorer
+
+def _construct_colorer(sorted_vals, cmap="coolwarm"):
+    cm = plt.get_cmap(cmap, len(sorted_vals))
+    
+    N =float(len(sorted_vals))
+    
+    def _get_cm(val):
+        return cm(sorted_vals.index(val)/N)
+    
+    return _get_cm
+
+def _construct_colorer_lin_scale(vmin, vmax, ticks=20, cmap="coolwarm"):
+    assert vmax > vmin
+    
+    cm = plt.get_cmap(cmap, ticks)
+    
+    def _get_cm(val):
+#         assert val <= vmax
+#         assert val >= vmin
+        alpha= (val - vmin)/float((vmax - vmin))
+        tick = int(alpha * ticks)
+        tick = min(tick, ticks - 1)
+        return cm(tick)
+    
+    return _get_cm
+
 ## Tricks for plots
 
 ax.set_xticks(np.arange(0,1,1,0.1))
