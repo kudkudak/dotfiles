@@ -45,6 +45,11 @@ import matplotlib
 matplotlib.use('TkAgg') 
 import matplotlib.pylab as plt
 
+## Plot from cmdline
+
+matplotlib.use('Agg')
+import matplotlib.pylab as plt
+
 ## Change tick size
 
 ax = plt.gca()
@@ -54,7 +59,7 @@ ax.tick_params(labelsize=labelfontsize)
 ax.plot(H['acc'], label='_nolegend_', color=color)
 
 ## Rare ticks
-`
+# TODO
 
 ## Save to file professionally
 def _save_fig(path):
@@ -63,4 +68,4 @@ def _save_fig(path):
        pad_inches=0 )
 
 
-## Just dont do subsetting using matplotlib.
+
