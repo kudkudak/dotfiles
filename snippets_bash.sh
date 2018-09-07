@@ -6,6 +6,11 @@ tmux new -s isotropy
 
 find /data/milatmp1/jastrzes/isotropy/results/wojtek  -name '*h5' | xargs rm
 
-# Conda
+# New repo
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+conda create --name $PNAME
+conda install tensorflow-gpu numpy matplotlib keras tqdm seaborn
 
-conda create --name myenv
+# SSH key copy
+ssh-copy-id user@server
