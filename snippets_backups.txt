@@ -1,0 +1,11 @@
+Backup:
+* Dropbox
+* Czarny (moj glowny, time machine tez)
+* Niebieski (backup)
+
+Procedure:
+* Dropbox -> CurrentStaszek (zmiana folderu selective sync, i tyle. Puscic)
+* Dysk -> LightStaszek
+* TimeMachine
+* Sprawdz size
+
