@@ -102,7 +102,6 @@ git reset $(git commit-tree HEAD^{tree} -m "A new start")
 # Typical config
 source ~/.bash_profile
 PNAME=magic_sgd
-export DROPBOXTOKEN=cbIEY7UJ3K4AAAAAAACtHWCaQb31VGUGCH3xOIZERlVm7OAHRE0erRhwtIFMFxmJ
 export MPLBACKEND="module://itermplot"
 export KERAS_BACKEND=tensorflow
 export PYTHONNOUSERSITE=1
