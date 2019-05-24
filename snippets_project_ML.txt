@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+PDIR=dnnsharpest
+
+sources=
+
+declare -a sources=(
+    "a"
+    "b"
+)
+
+declare -a pwds=(
+    "a"
+    "b"
+)
+
+for (( i=0; i<${#sources[@]}; i++ )); do
+    source=${sources[$i]}
+    pwd=${pwds[$i]}
+    /usr/local/bin/sshpass -p "$pwd" rsync -r -v $source fig
+    sleep 5 # Avoid throtling
+done

@@ -1,16 +1,41 @@
+## Iterm
+
+pip install itermplot
+export MPLBACKEND="module://itermplot"
+
+## Some useful styling
+import matplotlib.style
+import matplotlib as mpl
+from matplotlib import pyplot as plt
+import seaborn as sns
+sns.set_style("ticks")
+
+mpl.style.use('seaborn-colorblind')
+mpl.rcParams.update({'font.size': 14, 'lines.linewidth': 2, 'figure.figsize': (6, 6/1.61)})
+mpl.rcParams['grid.color'] = 'k'
+mpl.rcParams['grid.linestyle'] = ':'
+mpl.rcParams['grid.linewidth'] = 0.5
+mpl.rcParams['lines.markersize'] = 6
+mpl.rcParams['lines.marker'] = None
+mpl.rcParams['axes.grid'] = True
+COLORS = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+
+DEFAULT_FONTSIZE = 13
+mpl.rcParams.update({'font.size': DEFAULT_FONTSIZE, 'lines.linewidth': 2, 
+                     'legend.fontsize': DEFAULT_FONTSIZE, 'axes.labelsize': DEFAULT_FONTSIZE, 
+                     'xtick.labelsize': DEFAULT_FONTSIZE, 'ytick.labelsize': DEFAULT_FONTSIZE, 'figure.figsize': (7, 7.0/1.4)})
+
 ## Colorer
+ def _construct_colorer(sorted_vals, cmap="coolwarm"): 
+    cm = plt.get_cmap(cmap, len(sorted_vals)) 
+    N =float(len(sorted_vals)) 
+    def _get_cm(val): 
+        return cm(sorted_vals.index(val)/N) 
+    return _get_cm 
 
-def _construct_colorer(sorted_vals, cmap="coolwarm"):
-    cm = plt.get_cmap(cmap, len(sorted_vals))
-    
-    N =float(len(sorted_vals))
-    
-    def _get_cm(val):
-        return cm(sorted_vals.index(val)/N)
-    
-    return _get_cm
 
-def _construct_colorer_lin_scale(vmin, vmax, ticks=20, cmap="coolwarm"):
+
+ def _construct_colorer_lin_scale(vmin, vmax, ticks=20, cmap="coolwarm"):
     assert vmax > vmin
     
     cm = plt.get_cmap(cmap, ticks)
@@ -56,16 +81,22 @@ ax = plt.gca()
 ax.tick_params(labelsize=labelfontsize)
 
 ## Remove from legend
+ax.plot(D['lanczos_top_K'], D['F'], label="__nolabel__") 
 ax.plot(H['acc'], label='_nolegend_', color=color)
 
 ## Rare ticks
-# TODO
+import matplotlib.ticker as ticker
+        if space_x != -1:
+            ax.xaxis.set_major_locator(ticker.MultipleLocator(space_x))
 
 ## Save to file professionally
 def _save_fig(path):
     plt.savefig(path,bbox_inches='tight', 
        transparent=True,
        pad_inches=0 )
+
+## Good defaults
+plt.rcParams['figure.figsize'] = (7,7)
 
 
 

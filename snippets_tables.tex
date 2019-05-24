@@ -18,4 +18,8 @@ for column in ["Test acc."]:
     D2[column] = D2[column].map('${:,.1f}\%$'.format)
 print(D2.to_latex(escape=False))
 
+# Iterate ovr groupby
 
+for df_key, df_sub in list(D_col.groupby(groupbycols,as_index=False)):
+            # TODO: Add assert each group is larger > 1?
+            selected.append(df_sub.mean())

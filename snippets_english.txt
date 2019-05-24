@@ -1,0 +1,9 @@
+General:
+* Write short sentences
+
+Sentence:
+* Relegate figures
+* This is the crux of
+* We corroborate our results with
+* We close the paper
+*

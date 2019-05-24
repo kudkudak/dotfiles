@@ -1,0 +1,4 @@
+OSX:
+* TimeMachine for system
+* Do not install LG drivers 
+* Install sshmux
