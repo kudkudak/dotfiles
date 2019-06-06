@@ -17,7 +17,6 @@ conda create --name $PNAME python=3.6 # py3.6 for tensorflow
 conda create --name $PNAME python=2.7 # py2.7 for pytorch
 conda install joblib tqdm scikit-learn h5py jupyter numpy pandas matplotlib tqdm seaborn # PyTorch package
 
-#
 ## Special (TF-gpu zadlo cuda9), make sure libraries are correctly linked
 conda install keras tensorflow-gpu==1.8.0 joblib tqdm scikit-learn h5py jupyter numpy pandas matplotlib tqdm seaborn 
 
@@ -38,11 +37,15 @@ conda install -c rdkit rdkit
 conda install tensorflow joblib tqdm scikit-learn h5py jupyter numpy matplotlib tqdm seaborn
 conda install pytorch -c pytorch; pip install -U git+https://github.com/GRAAL-Research/pytoune.git
 
+## Pytorch project
+conda install tensorboard joblib tqdm scikit-learn h5py jupyter numpy matplotlib tqdm seaborn pytorch pandas -c pytorch
+
 ## Always
 pip install itermplot dropbox
 
 # Conda how to dump
-conda env export > $PNAME.yml
+conda env export --no-builds > $PNAME.yml
+
 
 # SSH key copy
 ssh-copy-id user@server
@@ -67,6 +70,9 @@ grep -rnw '/path/to/somewhere/' -e 'pattern'
 
 # File sizes + sort
 du -hs * | sort -h
+
+# String comaprison
+if [ "$x" = "valid" ];
 
 # File exists
 
@@ -110,3 +116,37 @@ export PATH=$SCRATCH/miniconda3/envs/$PNAME/bin:$PATH
 export PYTHONPATH=$HOME/magic_sgd:$PYTHONPATH
 export RESULTS_DIR=$SCRATCH/magic_sgd/results
 export DATA_DIR=$SCRATCH/magic_sgd/data
+
+# s.sh
+
+if [ "$1" = "uj" ]; then
+	WHERE=jastrzebski@truten.ii.uj.edu.pl:/home/jastrzebski/$PNAME
+fi
+
+if [ "$1" = "d1" ]; then
+	WHERE=jastrs01@dlr1.nyumc.org:/gpfs/data/geraslab/jastrs01/code/$PNAME
+fi
+
+rsync -vrpa * --exclude-from=exclude.rsync $WHERE
+
+# NYU specific
+https://docs.google.com/document/d/1HvnpBvb1T1Sg6ECff8uE3usW7GB89KMiGWXiN_PswV8/edit
+
+bsub -Is -n 4 -gpu "num=1:mode=shared" python3
+gpuuse
+bsub -Is -n 4 -q short -gpu "num=1:mode=shared:j_exclusive=yes" python3
+
+## Typical e.sh
+
+source ~/.bashrc
+PNAME=magic_sgd
+KERAS_BACKEND=tensorflow
+
+source activate ${PNAME}
+
+export PYTHONPATH=/gpufs/data/geraslab/code/$PNAME:$PYTHONPATH
+export RESULTS_DIR=$SCRATCH/results/$PNAME
+export DATA_DIR=$SCRATCH/data/$PNAME
+
+mkdir -p $RESULTS_DIR
+mkdir -p $DATA_DIR

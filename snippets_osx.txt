@@ -1,4 +1,33 @@
 OSX:
+
+Software
+* Dropbox
+* Chrome
+* iterm
+* BeFocused
+* Evernote
+* sshmux
+* Snap (https://itunes.apple.com/us/app/snap/id418073146?mt=12)
+* Spectacle
+* brew
+* flux
+
+Other:
+* Big-IP edge client (http://www.atnyulmc.org)
+* conda python (type in google "anaconda osx download")
+
+Then:
+* Login chrome, dropbox (will require phone)
+* Turn off rearranging in Mission control
+* wallpaper automatic (Dropbox -> Inne -> wallpaper)
+* Docking bar make smaller, add all apps, and finally turn on hiding
+* Iterm backward words configuration (3 steps, see https://coderwall.com/p/h6yfda/use-and-to-jump-forwards-backwards-words-in-iterm-2-on-os-x)
+* spectacle shortcuts change (control-cmd for fullscreen, left, right, top, donw)
+* Move BeFocused on top bar (press cmd and drag). Configure shortcut to cmd + P.
+* Enable switch to desktop ^1-5 in Keyboard->shortcuts (not sure how to do 6-8)
+
+Other notes:
 * TimeMachine for system
-* Do not install LG drivers 
-* Install sshmux
+
+
+
