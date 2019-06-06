@@ -6,11 +6,15 @@ Software
 * iterm
 * BeFocused
 * Evernote
-* sshmux
+* brew
+* sshmux (brew install wget; wget https://raw.githubusercontent.com/Russell91/sshmux/master/sshmux && 
+chmod +x sshmux && 
+sudo mv sshmux /usr/local/bin )
 * Snap (https://itunes.apple.com/us/app/snap/id418073146?mt=12)
 * Spectacle
-* brew
 * flux
+* spotify
+* sshfs (https://github.com/osxfuse/osxfuse/releases/tag/osxfuse-3.9.1)
 
 Other:
 * Big-IP edge client (http://www.atnyulmc.org)
@@ -28,6 +32,8 @@ Then:
 
 Other notes:
 * TimeMachine for system
+
+TODO: Scripts
 
 
 
