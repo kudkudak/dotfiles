@@ -19,3 +19,19 @@ for (( i=0; i<${#sources[@]}; i++ )); do
     /usr/local/bin/sshpass -p "$pwd" rsync -r -v $source fig
     sleep 5 # Avoid throtling
 done
+
+PNAME=example_chem_project
+
+# By default set to root of the project, configure if needed
+export DATA_DIR=./data
+export RESULTS_DIR=./results
+
+conda_path(){
+	export PYTHONPATH=
+	export PYTHONNOUSERSITE=1
+}
+
+# This is a reasonable default. It isolates conda env from system packages
+# Remove if causes any problems (this might mean conda updates its linking)
+conda_path $PNAME
+source activate $PNAME

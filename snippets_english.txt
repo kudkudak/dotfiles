@@ -1,9 +1,32 @@
+TODO: Import here nice phrases from other places. Try to revisit them using Anki.
+
+Words
+* Expose
+
 General:
 * Write short sentences
+* Trace back	2
+
+Linkers:
+* We begin by 
+* Namely
+* Meanwhile
+* Subsequently
+* In a similar spirit
+
+Math
+* Here
+* Let
 
 Sentence:
 * Relegate figures
 * This is the crux of
 * We corroborate our results with
 * We close the paper
-*
+*At the first glancex6
+
+Random:
+* Follow recommendation
+* We concentrate our efforts
+* This paper shows
+* Analogous study

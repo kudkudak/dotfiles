@@ -1,3 +1,91 @@
+% Typical preamble
+
+\usepackage[colorlinks=True]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{amsmath}
+
+% Minipage and hspace
+    \begin{minipage}{.48\textwidth}
+    \includegraphics[width=0.47\textwidth]{fig/1809nobnscnnc10sweeplrG_SN.pdf}%
+    \includegraphics[width=0.47\textwidth]{fig/1809nobnscnnc10sweeplrconditioningratio.pdf}
+    \hspace*{0.3cm}
+     \includegraphics[width=0.9\textwidth]{fig/1809nobnscnnc10sweeplrlegend.pdf}
+    \end{minipage}
+
+% Diagramy
+
+http://latex-cookbook.net/articles/smart-diagrams/
+
+% Side by side 
+
+\begin{frame}{Research Question}
+% Czemu w tym doktoracie zajmuje sie sieciami neuronowymi
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+  \centering
+   \includegraphics<1,2>[width=0.4\paperwidth]{fig/optim_in_DL.png} 
+ \caption{Choice of the optimization method change generalization. An important difference between "deep learning" and "shallow" learning. \textcolor{red}{Why?}}
+\end{subfigure} 
+~
+\pause
+\begin{subfigure}[t]{0.45\textwidth}
+  \centering
+%\includegraphics<2>[width=0.4\paperwidth]{fig/mtla.png}
+\includegraphics<2>[width=0.4\paperwidth]{fig/mtlb.png}
+\caption{Mult-task learning is both key for real-life application s of DL, and extremely challenging in practice. This and other open challenges in DL might be due to optimization.}
+%\caption{Wykrywanie raka piersi za pomocą sieci neuronowej. Działa świetnie, ale (według mnie) za mało rozumiemy sieci neuronowy aby używać tego typu modele klinicznie.}
+\end{subfigure}
+\end{figure}
+
+% Remove unused
+
+import glob
+import os
+
+TEX=open("../main.tex").read()
+
+SRC1="/Users/jastrs01/Dropbox/Apps/results_experiments/gpfs/data/geraslab/jastrs01/code/magic_sgd/experiments/07_19_base_experiment/plotting"
+SRC2="/Users/jastrs01/Dropbox/Apps/results_experiments/gpfs/data/geraslab/jastrs01/code/magic_sgd/experiments/07_19_base_experiment/misc_plotting"
+SRC3="/Users/jastrs01/Dropbox/Apps/results_experiments/gpfs/data/geraslab/jastrs01/code/magic_sgd/experiments/07_19_base_experiment/eyecandy"
+for SRC in [SRC1, SRC2, SRC3]:
+    for f in glob.glob("*pdf"):
+        if os.path.basename(f) not in TEX:
+            print("WARNING! {} not found in main.tex".format(f))
+        else:
+            print("OK")
+        a = os.path.join(SRC, os.path.basename(f))
+        os.system("cp {} {}".format(a,f))
+
+% Update figures
+
+%% Workflow for adding new figures is to copy manually and use in overleaf
+
+import glob
+import os
+SRC="$HOME/Dropbox/Apps/results_experiments/magic_sgd/experiments/07_19_base_experiment/plotting"
+SRC1="/Users/jastrs01/Dropbox/Apps/results_experiments/gpfs/data/geraslab/jastrs01/code/magic_sgd/experiments/07_19_base_experiment/plotting"
+SRC2="/Users/jastrs01/Dropbox/Apps/results_experiments/gpfs/data/geraslab/jastrs01/code/magic_sgd/experiments/07_19_base_experiment/misc_plotting"
+for SRC in [SRC1, SRC2]:
+   for f in glob.glob("*pdf"):
+    a=os.path.join(SRC, os.path.basename(f))
+    os.system("cp {} {}".format(a,f))
+
+% GIT and overleaf
+
+git clone https://git.overleaf.com/5d49b8e7c717ee6322f44c55 paper
+Login with your credentials (if using Google account in Overleaf then login using random credentials and follow the instructions)
+
 % Arxiving paper
 
 0. pdflatex bibtex to make sure bbl fire exists
@@ -6,6 +94,17 @@
 reference to eps! (e.g. improtant for On the relation paper)
 3. main.bib and main.bbl in the same folder
 4. no other tex files 
+
+\definecolor{darkblue}{rgb}{0.0,0.0,0.55}
+\hypersetup{
+  colorlinks = true,
+  citecolor  = darkblue,
+  linkcolor  = darkblue,
+  citecolor  = darkblue,
+  filecolor  = darkblue,
+  urlcolor   = darkblue,
+}
+\usepackage{color}
 
 % Removing unsued figures
 
@@ -27,6 +126,15 @@ for filename in os.listdir(directory):
             os.remove(os.path.join(directory, filename))
         else:
             print(filename + ' is a directory.')
+
+% Absolute position beamer
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east,inner sep=0pt] at ($(current page.north east)+(2cm,5cm)$) {
+     \includegraphics[width=0.2\paperwidth]{fig/breakeven_a.png}
+  };
+\end{tikzpicture}
+
 
 % Columns beamer
 
@@ -59,6 +167,9 @@ for filename in os.listdir(directory):
 \end{center}
 \end{frame}
 
+
+% Block
+
 % Subfigure beamer
 
 \begin{figure}
@@ -77,7 +188,7 @@ for filename in os.listdir(directory):
 \label{fig:same_noise_diff_bp}
 \end{figure}
 
-% Subfigures
+% Subfigures (USE subcaption package not subfigure!!!)
 
 \begin{figure}
 \centering
@@ -100,19 +211,41 @@ for filename in os.listdir(directory):
 \label{fig:largesteigenvalues}
 \end{figure}
 
+% Boxes and definitions
+\newtcolorbox{titlelessblock}{
+  enhanced,
+  boxsep=0.25ex,
+  arc=1.25ex,
+  opacityframe=.6,
+  opacityback=.6,
+  colback=red!70!black,
+  colframe=red!70!black,
+  boxrule=0pt
+}
+
+
 % Movie
-\begin{frame}{Solution \#2: simulation}
-\LARGE
-\begin{center}
- \movie[%
-                height = 7cm,%
-                width = 7cm,%
-                showcontrols,%
-                poster%
-            ]%
-            {\includegraphics[width=0.5\textwidth]{fig/docking_video.png}}
-            {docking.mov}
-            
-            
-            \end{center}
+%% NOTE: needs Adobe Reader
+brew install ffmpeg
+ffmpeg -i G.gif -vf scale="trunc(iw/2)*2:trunc(ih/2)*2" -c:a copy -c:v libx264 -profile:v high -pix_fmt yuv420p -g 2 -r 30 G.mp4
+%% NOTE: -g is important
+% NOTE: Only mov works on OSX
+\begin{frame}{}
+\centering    
+%\includemovie[
+%  repeat,autoplay,autoresume,continue,poster
+%]{6cm}{6cm}{fig/G.mp4}
+\includemedia[
+width=0.6\linewidth,height=0.45\linewidth,
+addresource=fig/G.mp4, 
+transparent,
+activate=pageopen,
+flashvars={
+source=fig/G.mp4
+&autoPlay=true
+&autoRewind=false,
+&loop=true % loop video
+}
+]{}{VPlayer.swf}
 \end{frame}
+% NOTE: Looping depends on ffpmeg. Not sure why

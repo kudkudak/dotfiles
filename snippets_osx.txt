@@ -15,10 +15,16 @@ sudo mv sshmux /usr/local/bin )
 * flux
 * spotify
 * sshfs (https://github.com/osxfuse/osxfuse/releases/tag/osxfuse-3.9.1)
+* install inkscape + latex (https://textext.github.io/textext/install/macos.html)
+
+Maybe:
+* QObserve
+* Zotero
 
 Other:
 * Big-IP edge client (http://www.atnyulmc.org)
 * conda python (type in google "anaconda osx download")
+* brew install watchman (for projects)
 
 Then:
 * Login chrome, dropbox (will require phone)
@@ -29,11 +35,12 @@ Then:
 * spectacle shortcuts change (control-cmd for fullscreen, left, right, top, donw)
 * Move BeFocused on top bar (press cmd and drag). Configure shortcut to cmd + P.
 * Enable switch to desktop ^1-5 in Keyboard->shortcuts (not sure how to do 6-8)
+* Add spectacle, dropbox, snap, flux to login
 
 Other notes:
-* TimeMachine for system
-
-TODO: Scripts
+* TimeMachine for system™
 
 
 
+
+`

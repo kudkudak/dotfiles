@@ -1,1 +1,79 @@
-ed.ac.uk
+# Biogram
+
+Dr Stanislaw Jastrzębski odbywa obecnie staż podoktorski na New York University oraz pracuje jako szef zespołu uczenia maszynowego w firmie molecule.one. Pracę doktorską obronił z wyróżnieniem na Uniwersytecie Jagiellońskim pod kierownictwem Prof. Jacka Tabora i Prof. Amosa Storkey (University of Edinburgh). W czasie doktoratu współpracował naukowo z Prof. Yoshua Bengio oraz z Google Research. Autor publikacji oraz recenzent na najważniejszych konferencjach w dziedzinie (NeurIPS, ICML, ICLR). Jego badania skupiają się na optymalizacji głębokich sieci neuronowych. Równolegle rozwija nowe metody sztucznej inteligencji dla zastosowań w chemii leków.
+
+
+Bio: Stanislaw Jastrzębski is a postdoctoral fellow at New York University co-supervised by Kyunghyun Cho and Krzysztof Geras. He obtained his PhD from Jagiellonian University co-supervised by Jacek Tabor and Amos Storkey (University of Edinburgh). During his PhD he collaborated with MILA (supervised by Yoshua Bengio) and Google. His long-term goal is to understand and improve optimization of deep networks. He is also passionate about applications of deep learning to the drug discovery process and automatic medical diagnosis.
+
+
+I recently started as a postdoctoral fellow at New York University. I am also an advisor at molecule.one. I obtained my PhD from Jagiellonian University co-supervised by Jacek Tabor and Amos Storkey from University of Edinburgh. During the PhD studies I collaborated with MILA (with Yoshua Bengio) and Google Research. My long term research goal is to improve fundamental aspects of optimization for deep learning. At the same time, I am deeply passionate about the possibility of speeding up the drug discovery process using AI and deep learning.
+
+Bio M1:
+
+Stanisław Jastrzębski is a postdoctoral fellow at New York University and an advisor at Molecule.one. He obtained his PhD from Jagiellonian University co-supervised by Jacek Tabor and Amos Storkey from the University of Edinburgh. During his studies, he collaborated with MILA (with Yoshua Bengio) and Google Research. He regularly publishes at top-tier machine learning conferences such as ICML, ICLR, and NeurIPS. His long term research goal is to improve fundamental aspects of optimization of deep neural networks. At the same time, he is deeply passionate about the possibility of speeding up the drug discovery process using AI and deep learning.
+
+ICLR, and NeurIPS. 
+
+# Konflikty
+
+ed.ac.uk;uj.edu.pl;google.com;nyu.edu;umontreal.ca
+
+
+
+# Jak figury w papierze
+
+Miec folder na wszystkie
+Miec skrypt co updatuje
+Wybierac recznie figuree z folderu
+Usuwac nieuzywane
+
+# Slajdy
+
+https://www.dropbox.com/s/qonozmne0x4x2r3/deepsurveyICML18final.pptx?dl=0#
+
+# Poster
+
+Effective.
+https://s3.amazonaws.com/postersession.ai/86c2e338-4245-482e-a76a-30711aed8ec1.pdf
+https://www.molecularecologist.com/2016/06/10-simple-rules-for-designing-a-scientific-poster/
+
+chwalic samego siebie zawsze miło :stuck_out_tongue: tyle wymyslilem na szybko:
+1. Publications in the top machine learning conferences such as ICML and ICLR.
+2. PhD in Deep Learning from Jagiellonian University advised by Jacek Tabor and co-advised by Amos Storkey from University of Edinburgh
+3. Regularly collaborates with leading research groups such as MILA (advised by Yoshua Bengio, several co-authored papers) and Google Zurich.
+4. Regular reviewer for the top machine learning conferences including ICML, NeurIPS and ICLR
+
+jakbys to gdzies wstawial to jeszcze daj znac. troche na szybko to pisalem
+mozna dodac jeszcze 5. Awarded prestigious research grants (Diamond Grant, ETIUDA) and prizes (honorable mention for best computer science PhD thesis in Poland)
+a w jakim to kontekscie?
+
+# Update figures
+
+import glob
+import os
+SRC="$HOME/Dropbox/Apps/results_experiments/magic_sgd/experiments/07_19_base_experiment/main"
+for f in glob.glob("*pdf"):
+   a=os.path.join(SRC, os.path.basename(f))
+   assert os.system("cp {} {}".format(a,f))==0
+
+
+% Removing unsued figures
+
+# small script that deletes unused graphic files in a latex project.
+# specify graphic directory and logfile. Unused files will be deleted in specified directory.
+
+import os
+
+directory = 'figs'
+logfile = 'main.log'
+enc = 'Latin-1' # For Overleaf, try 'Latin-1' if issues encountered...
+
+for filename in os.listdir(directory):
+    if filename in open(logfile).read():
+        print(filename + ' in use.')
+    else:
+        if os.path.isfile(os.path.join(directory, filename)):
+            print(filename + ' not in use - deleting.')
+            os.remove(os.path.join(directory, filename))
+        else:
+            print(filename + ' is a directory.')

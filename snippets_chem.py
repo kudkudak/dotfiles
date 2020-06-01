@@ -1,4 +1,4 @@
-# Jakis tam score
+ to # Jakis tam score
 def get_smiles_optim_score(smiles_list, delete_nans=False):
     smiles_optim_score = [get_optim_score(smi) for smi in smiles_list]
     
